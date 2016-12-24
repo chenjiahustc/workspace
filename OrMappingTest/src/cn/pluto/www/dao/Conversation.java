@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import cn.pluto.www.UserBean;
+import cn.pluto.www.UserBeanProxy;
 
 public class Conversation {
 	private static Connection conn = null;
@@ -14,7 +15,6 @@ public class Conversation {
 	
 	static {
 		try{
-			System.out.println(Configuration.getDriver());
 			Class.forName(Configuration.getDriver());
 		} catch(Exception e){
 			e.printStackTrace();
@@ -69,7 +69,7 @@ public class Conversation {
 	}
 
 	public static UserBean getUser(String key, String value){
-		UserBean ub = new UserBean();
+		UserBean ub = new UserBeanProxy();
 		String table = null;
 		String column = null;
 		
@@ -93,9 +93,65 @@ public class Conversation {
 		
 		rs = query(sql, params);
 		
+		
 		try{
 			if (rs != null){
 				if(rs.next()){
+					ub.setUserid(rs.getInt(omcTarget.getId()));
+					for(OrMappingProperty omp : omcTarget.getProperties()){
+						if ("username".equals(omp.getName())){
+							if ("false".equals(omp.getLazy())){
+								if ("String".equals(omp.getType()))
+									ub.setUsername(rs.getString(omp.getColumn()));
+							}
+						} 
+						else if ("password".equals(omp.getName())){
+							if ("fasle".equals(omp.getLazy())){
+								if ("String".equals(omp.getType()))
+									ub.setPassword(rs.getString(omp.getColumn()));
+							}
+						}
+						else
+							;
+					}
+				}
+			}
+		} catch(Exception e){
+			e.printStackTrace();
+		} finally{
+			closeDBConnection();
+		}
+		
+		return ub;
+	}
+	
+	public static UserBean getUser(int id){
+		UserBean ub = new UserBean();
+		String table = null;
+		String column = null;
+		
+		//通过Configuration查询到key所对应的的列
+		OrMappingClass omcTarget = null;
+		OrMappingProperty ompTarget = null;
+		for(OrMappingClass omc : Configuration.getOrMappingclassList()){
+			if ("UserBean".equals(omc.getName())){
+				omcTarget = omc;
+			}
+		}
+		
+		table = omcTarget.getTable();
+		column = omcTarget.getId();
+		
+		String sql = "select * from " + table + " where " + column + "=?";
+		String[] params = new String[]{String.valueOf(id)};
+		
+		rs = query(sql, params);
+		
+		
+		try{
+			if (rs != null){
+				if(rs.next()){
+					ub.setUserid(rs.getInt(1));
 					ub.setUsername(rs.getString(2));
 					ub.setPassword(rs.getString(3));
 				}
@@ -109,12 +165,28 @@ public class Conversation {
 		return ub;
 	}
 	
-	public static UserBean getUser(int id){
-		UserBean ub = null;
+	
+	public static boolean saveUser(UserBean ub){
+		String sql = "insert into users (name, pwd) VALUES(?, ?)";
+		String[] params = new String[]{ub.getUsername(), ub.getPassword()};
 		
-		return ub;
+		return 1 == update(sql, params);
 	}
+	
+	public static boolean updateUser(UserBean ub){
+		String sql = "update users set name=?, pwd=? where userid=?";
+		String[] params = new String[]{ub.getUsername(), ub.getPassword(), String.valueOf(ub.getUserid())};
 		
+		return 1 == update(sql, params);
+	}
+	
+	public static boolean deleteUser(UserBean ub){
+		String sql = "delete from users where userid=?";
+		String[] params = new String[]{String.valueOf(ub.getUserid())};
+		
+		return 1 == update(sql, params);
+	}
+	
 	public static ResultSet query(String sql, String[] params){
 		try{
 			conn = openDBConnection();
@@ -131,5 +203,21 @@ public class Conversation {
 		return rs;
 	}
 	
+	public static int update(String sql, String[] params){
+		int result = 0;
+		try{
+			conn = openDBConnection();
+			ps = conn.prepareStatement(sql);
+			for(int i = 0;i < params.length;i++){
+				ps.setString(i + 1, params[i]);
+			}
+			
+			result = ps.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 	
 }

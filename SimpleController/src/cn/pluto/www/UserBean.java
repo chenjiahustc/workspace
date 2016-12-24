@@ -2,10 +2,21 @@ package cn.pluto.www;
 
 import java.sql.ResultSet;
 
+import cn.pluto.www.dao.Conversation;
+
 public class UserBean {
+	private int userid;
 	private String username = null;
 	private String password = null;
 	
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -23,10 +34,9 @@ public class UserBean {
 	}
 
 	public boolean checkLogin(){
-		UserDAO userdao = new UserDAO();
 		UserBean ub = null;
 		
-		ub = userdao.queryUser(username);
+		ub = Conversation.getUser("username", username);
 		
 		if (ub != null){
 			if (ub.getPassword().equals(password))
@@ -37,21 +47,15 @@ public class UserBean {
 			return false;
 	}
 	
-	public boolean registerUser(){
-		UserDAO userdao = new UserDAO();
-		
-		return userdao.insertUser(this);
+	public boolean registerUser(){	
+		return Conversation.saveUser(this);
 	}
 	
 	public boolean updateUser(){
-		UserDAO userdao = new UserDAO();
-		
-		return userdao.updateUser(this);
+		return Conversation.updateUser(this);
 	}
 	
 	public boolean deleteUser(){
-		UserDAO userdao = new UserDAO();
-		
-		return userdao.deleteUser(this);
+		return Conversation.deleteUser(this);
 	}
 }

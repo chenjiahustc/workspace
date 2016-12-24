@@ -24,7 +24,7 @@ public class OrMappingProperty {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String isLazy() {
+	public String getLazy() {
 		return lazy;
 	}
 	public void setLazy(String lazy) {

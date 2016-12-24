@@ -21,7 +21,7 @@
 	
 	<class>
 		<name>UserBean</name>
-		<table>user</table>
+		<table>users</table>
 		<id>
 			<name>userid</name>
 		</id>

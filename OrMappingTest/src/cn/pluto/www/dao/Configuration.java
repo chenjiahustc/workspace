@@ -13,7 +13,7 @@ public class Configuration {
 	private static String url = "";
 	private static String username = "";
 	private static String password = "";
-	private static List<OrMappingClass> orMappingclassList = null;
+	private static List<OrMappingClass> orMappingclassList = new ArrayList<OrMappingClass>();
 	
 	static {
 		Document document = null;

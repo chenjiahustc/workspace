@@ -13,14 +13,14 @@ public class Configuration {
 	private static String url = "";
 	private static String username = "";
 	private static String password = "";
-	private static List<OrMappingClass> orMappingclassList = null;
+	private static List<OrMappingClass> orMappingclassList = new ArrayList<OrMappingClass>();
 	
 	static {
 		Document document = null;
-		String filepath = Thread.currentThread().getContextClassLoader().getResource("").getPath(); 
+		String filepath = Thread.currentThread().getContextClassLoader().getResource("").getPath() + "or_mapping.xml"; 
 		try{
 	        SAXReader reader = new SAXReader();  
-	        document = reader.read(new File(filepath + "or_mapping.xml"));
+	        document = reader.read(new File(filepath));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -31,13 +31,13 @@ public class Configuration {
 		Element jdbcElement = root.element("jdbc");
 		List<Element> props = jdbcElement.elements("property");
 		for(Element prop : props){
-			if (prop.element("name").equals("driver_class"))
+			if (prop.element("name").getText().equals("driver_class"))
 				driver = prop.element("value").getText();
-			else if (prop.element("name").equals("url_path"))
+			else if (prop.element("name").getText().equals("url_path"))
 				url = prop.element("value").getText();
-			else if (prop.element("name").equals("db_username"))
+			else if (prop.element("name").getText().equals("db_username"))
 				username = prop.element("value").getText();
-			else if (prop.element("name").equals("db_password"))
+			else if (prop.element("name").getText().equals("db_password"))
 				password = prop.element("value").getText();
 			else
 				;
@@ -49,7 +49,7 @@ public class Configuration {
 			OrMappingClass omc = new OrMappingClass();
 			String name = c.element("name").getText();
 			String table = c.element("table").getText();
-			String id = c.element("id").getText();
+			String id = c.element("id").element("name").getText();
 			List<OrMappingProperty> propList = new ArrayList<OrMappingProperty>();
 			
 			List<Element> propEs = c.elements("property");
