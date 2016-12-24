@@ -1,0 +1,7 @@
+package cn.pluto.ejb;
+
+import javax.ejb.Remote;
+
+public interface HelloWorld {
+	public String sayHello(String name);
+}

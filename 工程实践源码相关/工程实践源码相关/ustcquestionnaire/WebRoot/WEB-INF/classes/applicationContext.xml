@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<!-- 
+		把一个类放入到spring容器中，该类就称为bean
+	 -->
+	<!-- 
+		描述一个类
+		  id 唯一标示
+		  class  类名
+		  
+	 -->
+	<bean id="answers" class="edu.ustc.debunker.model.Answers"></bean>
+	<bean id="analyst" class="edu.ustc.debunker.model.Analyst"></bean>
+	<bean id="paper" class="edu.ustc.debunker.model.Paper"></bean>
+	<bean id="participant" class="edu.ustc.debunker.model.Participant"></bean>
+	<bean id="questions" class="edu.ustc.debunker.model.Questions"></bean>
+</beans>

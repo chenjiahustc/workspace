@@ -1,0 +1,33 @@
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*,javax.naming.*" pageEncoding="GBK" %>
+
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme() + "://" + request.getServerName() + ":";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	Properties props = new Properties();
+	props.setProperty("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
+	props.setProperty("java.naming.provider.url", "jnp://localhost");
+	props.setProperty("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
+	InitialContext ctx = new InitialContext(props); 
+	
+	UserManager userManager = (UserManager)ctx.lookup("UserManagerBean/remote");
+	User user = new User();
+	user.setUsername("Zhangsan");
+	user.setPassword("zhangsan");
+	
+	userManager.addUser(user);
+	
+	System.out.println("user has been saved, ites id : " + user.getId());
+%>
+</body>
+</html>

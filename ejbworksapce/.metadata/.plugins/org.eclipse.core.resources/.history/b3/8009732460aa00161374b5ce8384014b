@@ -1,0 +1,10 @@
+package ejb_03_client;
+
+public class UserManagerClient {
+
+	public static void main(String[] args) {
+		
+		
+	}
+
+}

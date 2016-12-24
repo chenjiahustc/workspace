@@ -1,0 +1,87 @@
+
+body {	
+	margin:0;
+	padding:0;
+	background-image:url(body-background.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+
+}
+
+.head{
+	margin:0 auto;
+	height:auto;
+	width:95%;
+	}
+.main{
+	margin:0 auto;
+	width:90%;
+	}
+.foot{
+	margin:0 auto;
+	height:100px;
+	}
+h1 {
+	text-align:center;
+	color:#000000;
+	font-size: xx-large;
+	font-weight:10;
+	}
+	
+h2 {
+	color:#000000;
+	font-weight:100;
+	}
+h3 {	
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size: large;	
+	}
+	
+span{
+	font-size:larger;
+	color:#000000;
+	}
+	
+ul {	
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size: 1em;	
+	list-style-type: square;	
+	list-style-position: outside
+	}
+input{
+	width:100px;
+	}
+	/*id选择器*/
+.button{
+	background-color:#92B901;
+	opacity:0.8; 
+	width:6em;
+	height:3em;
+	text-align:center;
+	text-shadow:#00FF00;
+	font-size:14px;
+	font-weight:bold;
+	position:relative;
+	left:30%;
+	border-radius:15%;
+	
+	}
+	#reset,#submit
+	{
+	position:relative;
+	left:30%;
+	
+	}
+	
+	#submit:hover,#reset:hover
+	{
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	transform: rotate(360deg);
+	opacity:1;
+	background:#1ec7e6;
+	width:4em;
+	height:2em	;
+	font-size:16px;
+	}

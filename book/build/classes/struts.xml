@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="book"  extends="struts-default">
+        <action name="adminService" class="com.book.action.admin.AdminServiceAction">
+            <result name="loginSuc" type="redirect">/info/adminInfo.jsp</result>
+            <result name="input" type="redirect">/adminLogin.jsp</result>
+        </action>
+        <action name="userService" class="com.book.action.user.UserServiceAction">
+        	<result name="loginSuc" type="redirect">/info/userInfo.jsp</result>
+        	<result name="input" type="redirect">/login.jsp</result>
+        	<result name="logoutSuc" type="redirect">/login.jsp</result>
+        	<result name="userUpdate" type="dispatcher">/user/changePWD.jsp</result>
+        	<result name="updateSuc" type="redirect">/info/userInfo.jsp</result>
+			<result name="saveSuc" type="redirectAction">listUser.action</result>
+        </action>	
+    </package>
+    
+    <!-- 管理员才能访问的action -->
+    <package name="authorityAdmin" extends="struts-default">
+    	<global-results>
+    		<result name="login">/adminLogin.jsp</result>
+    	</global-results>
+    	
+    	<action name="listUser" class="com.book.action.user.UserServiceAction" method="listUser">
+    		<result name="success">/user/list.jsp</result>
+    	</action>
+    	
+    	<action name="deleteUser" class="com.book.action.user.UserServiceAction" method="removeUser">
+    		<result name="success" type="redirectAction">listUser.action</result>
+    	</action>
+    	
+ 		<action name="updateUser" class="com.book.action.user.UserServiceAction" method="updateUser">
+			<result name="updateSuc">/user/update.jsp</result>
+		</action>
+    </package>
+</struts>

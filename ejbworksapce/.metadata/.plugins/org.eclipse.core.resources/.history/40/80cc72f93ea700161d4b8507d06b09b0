@@ -1,0 +1,23 @@
+package cn.pluto.ejb;
+
+import java.util.Properties;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+public class Client {
+
+	public static void main(String[] args) throws NamingException {
+		Properties props= new Properties();  
+		props.setProperty("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");  
+		props.setProperty("java.naming.provider.url", "jnp://localhost");  
+		props.setProperty("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");  
+
+		InitialContext ctx = new InitialContext(); 
+		HelloWorld ejb = (HelloWorld)ctx.lookup("HelloWorldBean/remote");
+		
+		System.out.println(ejb.sayHello("Tom"));
+		
+	}
+
+}

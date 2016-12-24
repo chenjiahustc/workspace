@@ -1,0 +1,39 @@
+import sys
+from selenium import webdriver
+import time
+
+class HuashuTV(object):
+
+    url=["http://tops.wasu.cn/show/cid/1","http://tops.wasu.cn/show/cid/11"]
+
+    def get_data(self,browser=None,DEBUG=False):
+        if browser is None:
+            new_browser = webdriver.Firefox()
+        else:
+            new_browser=browser
+        result=[]
+        for x in range(2):
+            new_browser.get(self.url[x])
+            time.sleep(1)
+            new_browser.find_element_by_xpath("/html/body/div[3]/div/div[3]/ul[1]/li[2]").click()
+            time.sleep(1)
+            i=1
+            temp=[]
+            """
+            while(i<=50):
+                one=new_browser.find_element_by_xpath("/html/body/div[3]/div/div[3]/ul[2]/li[%d]"%(i))
+                name=one.find_element_by_class_name("top_a").get_attribute("title")
+                count=MyString.string_to_integer(one.find_element_by_class_name("ws_hits").text)
+                temp.append([name,count])
+                i+=1
+            """
+            if DEBUG:
+                print(temp)
+            result.append(temp)
+        if browser is None:
+            new_browser.close()
+        return result
+
+if __name__ == '__main__':
+    my=HuashuTV()
+    my.get_data(None,True)

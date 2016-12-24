@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 
+		class用来描述一个类
+		   name 类的全名
+		   table 该持久化类对应的表名   可以不写，默认值为类名
+		   catalog  数据库的名称
+	paper_id             int,				/*问卷ID*/
+   question_id          int,				/*问题编号*/
+   question             varchar(200),		/*问题内容*/
+   weight               bool				/*是否算分*/
+	 -->
+	<class name="edu.ustc.debunker.model.Questions" table="questions">
+		<!-- 
+			用来描述主键
+			  name 属性的名称
+			  column 属性的名称对应的表的字段   可以不写  默认值就是属性的名称
+			  length  属性的名称对应的表的字段的长度  如果不写，默认是最大的长度
+		 -->
+ 		<composite-id>
+           <key-property name = "paper_id" type = "integer"></key-property>
+           <key-property name = "question_id" type = "integer"></key-property>
+           <key-property name = "question" length="200" type="string"></key-property>
+           <key-property name = "weight" type="boolean"></key-property>
+        </composite-id>
+	</class>
+</hibernate-mapping>

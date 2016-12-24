@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="J2EE_EXPORT_OVERWRITE"/>
+	<item value="false" key="J2EE_EXPORT_SOURCE"/>
+	<list key="J2EE_EXPORT_JST_EJB">
+		<item value="D:\workspace\ejbworksapce\ejb_03_client\ejb_03.jar"/>
+		<item value="D:\tools\jboss-4.2.1.GA\server\default\deploy\ejb_03.jar"/>
+		<item value="D:\workspace\ejbworksapce\ejb_01_client\ejb_01.jar"/>
+		<item value="D:\tools\jboss-4.2.1.GA\server\default\deploy\ejb_01.jar"/>
+		<item value="D:\tools\jboss-4.2.1.GA\server\default\ejb_01.jar"/>
+	</list>
+	<list key="MRU_RUNTIME_STORE">
+		<item value="JBoss AS 4.2 Runtime"/>
+	</list>
+</section>

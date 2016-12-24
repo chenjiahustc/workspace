@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-controller>
+	<interceptor>
+		<name>logWriter</name>
+		<class>
+			<name>cn.pluto.www.LogWriter</name>
+			<method>log</method>
+		</class>	
+	</interceptor>
+	
+	<!-- other interceptors -->
+	
+	<action>
+		<name>login</name>
+		<class>
+			<name>cn.pluto.www.LoginAction</name>
+			<method>login</method>
+		</class>
+		<interceptor-ref>
+			<name>logWriter</name>
+		</interceptor-ref>
+		<result>
+			<name>success</name>
+			<type>forward</type>
+			<value>pages/success_view.xml</value>
+		</result>
+		<result>
+			<name>fail</name>
+			<type>redirect</type>
+			<value>pages/fail.jsp</value>
+		</result>
+	</action>
+	<action>
+		<name>register</name>
+		<class>
+			<name>cn.pluto.www.RegisterAction</name>
+			<method>register</method>
+		</class>
+		<result>
+			<name>success</name>
+			<type>forward</type>
+			<value>pages/register_success.jsp</value>
+		</result>
+		<result>
+			<name>fail</name>
+			<type>redirect</type>
+			<value>pages/register_fail.jsp</value>
+		</result>
+	</action>	
+</action-controller>

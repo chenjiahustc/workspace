@@ -1,0 +1,18 @@
+package cn.pluto.ejb;
+
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class UserManagerBean
+ */
+@Stateless
+public class UserManagerBean implements UserManager {
+
+    /**
+     * Default constructor. 
+     */
+    public UserManagerBean() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

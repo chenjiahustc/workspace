@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<log> 
+  <action> 
+    <name>login</name>  
+    <s-time>2016-12-07 19:57:51</s-time>  
+    <e-time>2016-12-07 19:57:51</e-time>  
+    <result>success</result> 
+  </action>  
+  <action> 
+    <name>login</name>  
+    <s-time>2016-12-07 19:58:15</s-time>  
+    <e-time>2016-12-07 19:58:15</e-time>  
+    <result>success</result> 
+  </action>  
+  <action> 
+    <name>login</name>  
+    <s-time>2016-12-07 19:58:31</s-time>  
+    <e-time>2016-12-07 19:58:31</e-time>  
+    <result>success</result> 
+  </action>  
+  <action>
+    <name>login</name>
+    <s-time>2016-12-07 19:58:48</s-time>
+    <e-time>2016-12-07 19:58:48</e-time>
+    <result>success</result>
+  </action>
+</log>

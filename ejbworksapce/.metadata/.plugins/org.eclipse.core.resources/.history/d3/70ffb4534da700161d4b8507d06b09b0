@@ -1,0 +1,22 @@
+<%@ page contentType="text/html; charset=GBK"%>
+<%@ page import="cn.pluto.ejb.*, javax.naming.*, java.util.Properties"%>
+<%
+		Properties props = new Properties();
+		props.setProperty("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
+		props.setProperty("java.naming.provider.url", "localhost:8080");
+		props.setProperty("java.naming.factory.url.pkgs", "org.jboss.naming");	
+
+		InitialContext ctx;
+		try {
+			UserManager userManager = (UserManager)ctx.lookup("UserManagerBean/remote");
+			User user = new User();
+			user.setUsername("Zhangsan");
+			user.setPassword("zhangsan");
+			
+			userManager.addUser(user);
+			
+			out.println("user has been saved, ites id : " + user.getId());
+		} catch (NamingException e) {
+			out.println(e.getMessage());
+		}
+%>

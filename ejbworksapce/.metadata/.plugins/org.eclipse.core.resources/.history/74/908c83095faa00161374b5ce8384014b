@@ -1,0 +1,12 @@
+package cn.pluto.ejb;
+
+import javax.ejb.Stateless;
+
+
+@Stateless
+public class UserManagerBean implements UserManager {
+	public void addUser(User user){
+		System.out.println("User[username=" + user.getUsername() + "] had been saved");
+		user.setId(10);
+	}
+}

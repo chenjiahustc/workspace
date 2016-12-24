@@ -1,0 +1,9 @@
+package cn.pluto.ejb;
+
+import javax.ejb.Stateless;
+
+
+@Stateless
+public class UserManagerBean implements UserManager {
+
+}

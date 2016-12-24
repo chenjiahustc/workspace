@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 
+		class用来描述一个类
+		   name 类的全名
+		   table 该持久化类对应的表名   可以不写，默认值为类名
+		   catalog  数据库的名称
+		   
+	 -->
+	<class name="edu.ustc.debunker.model.Answers" table="answers">
+		<!-- 
+	answer_id			int not null,		/*答题编号*/
+   work_number          varchar(20),		/*工号*/
+   paper_id             varchar(10),		/*问卷号*/
+   answer_time          date,				/*答题时间*/
+   answer               varchar(100),		/*答案*/
+   question_id          int ,				/*问题编号*/
+   exam_id              varchar(10)	,				/*考试编号*/
+  primary key (answer_id)
+			用来描述主键
+			  name 属性的名称
+			  column 属性的名称对应的表的字段   可以不写  默认值就是属性的名称
+			  length  属性的名称对应的表的字段的长度  如果不写，默认是最大的长度
+		 -->
+		<id name="answer_id" column="answer_id" type="integer" >
+			<!-- 
+				主键的产生器
+			 -->
+			<generator class="increment"></generator>
+		</id>		
+		<property name="work_number" length="20" type="string"></property>
+		<property name="paper_id" length="10" type="string"></property>
+		<property name="answer_time"  type="date"></property>
+		<property name="answer" length="100" type="string"></property>
+		<property name="question_id" type="integer"></property>
+		<property name="exam_id" length="10" type="string"></property>
+	</class>
+</hibernate-mapping>

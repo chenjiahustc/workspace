@@ -1,0 +1,205 @@
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2016-11-10 19:40:53.996
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2016-11-10 19:41:17.143
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2016-11-10 19:42:42.668
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2016-11-10 19:43:11.433
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2016-11-10 19:43:20.250
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 33816577 2016-11-10 19:43:20.311
+!MESSAGE Error adding deployment folder to deployment scanner
+!STACK 1
+org.eclipse.core.runtime.CoreException: Error connecting to remote JMX. Please ensure your server is properly configured for JMX access.
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerJMXRunner.run(JBossServerJMXRunner.java:36)
+	at org.jboss.ide.eclipse.as.core.server.internal.JMXServerDeploymentScannerAdditions.ensureScannersAdded(JMXServerDeploymentScannerAdditions.java:62)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions.updateDeploymentScanners(AbstractDeploymentScannerAdditions.java:61)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions$1.run(AbstractDeploymentScannerAdditions.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.jboss.tools.jmx.core.JMXException: Error connecting to remote JMX. Please ensure your server is properly configured for JMX access.
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossJMXConnectionProviderModel.run(JBossJMXConnectionProviderModel.java:84)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerJMXRunner.run(JBossServerJMXRunner.java:33)
+	... 4 more
+Caused by: org.jboss.tools.jmx.core.JMXException: Error connecting to remote JMX. Please ensure your server is properly configured for JMX access.
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:220)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:162)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:137)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:132)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossJMXConnectionProviderModel.run(JBossJMXConnectionProviderModel.java:81)
+	... 5 more
+Caused by: javax.naming.CommunicationException [Root exception is java.rmi.NoSuchObjectException: no such object in table]
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:724)
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:589)
+	at javax.naming.InitialContext.lookup(Unknown Source)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.createConnection(JBossServerConnection.java:236)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:202)
+	... 9 more
+Caused by: java.rmi.NoSuchObjectException: no such object in table
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(Unknown Source)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(Unknown Source)
+	at sun.rmi.server.UnicastRef.invoke(Unknown Source)
+	at org.jnp.server.NamingServer_Stub.lookup(Unknown Source)
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:627)
+	... 13 more
+!SUBENTRY 1 org.jboss.ide.eclipse.as.jmx.integration 4 0 2016-11-10 19:43:20.337
+!MESSAGE Error connecting to remote JMX. Please ensure your server is properly configured for JMX access.
+!STACK 1
+org.jboss.tools.jmx.core.JMXException: Error connecting to remote JMX. Please ensure your server is properly configured for JMX access.
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossJMXConnectionProviderModel.run(JBossJMXConnectionProviderModel.java:84)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerJMXRunner.run(JBossServerJMXRunner.java:33)
+	at org.jboss.ide.eclipse.as.core.server.internal.JMXServerDeploymentScannerAdditions.ensureScannersAdded(JMXServerDeploymentScannerAdditions.java:62)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions.updateDeploymentScanners(AbstractDeploymentScannerAdditions.java:61)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions$1.run(AbstractDeploymentScannerAdditions.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.jboss.tools.jmx.core.JMXException: Error connecting to remote JMX. Please ensure your server is properly configured for JMX access.
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:220)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:162)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:137)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:132)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossJMXConnectionProviderModel.run(JBossJMXConnectionProviderModel.java:81)
+	... 5 more
+Caused by: javax.naming.CommunicationException [Root exception is java.rmi.NoSuchObjectException: no such object in table]
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:724)
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:589)
+	at javax.naming.InitialContext.lookup(Unknown Source)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.createConnection(JBossServerConnection.java:236)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:202)
+	... 9 more
+Caused by: java.rmi.NoSuchObjectException: no such object in table
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(Unknown Source)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(Unknown Source)
+	at sun.rmi.server.UnicastRef.invoke(Unknown Source)
+	at org.jnp.server.NamingServer_Stub.lookup(Unknown Source)
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:627)
+	... 13 more
+!SUBENTRY 2 org.jboss.ide.eclipse.as.jmx.integration 4 0 2016-11-10 19:43:20.337
+!MESSAGE Error connecting to remote JMX. Please ensure your server is properly configured for JMX access.
+!STACK 1
+org.jboss.tools.jmx.core.JMXException: Error connecting to remote JMX. Please ensure your server is properly configured for JMX access.
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:220)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:162)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:137)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:132)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossJMXConnectionProviderModel.run(JBossJMXConnectionProviderModel.java:81)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerJMXRunner.run(JBossServerJMXRunner.java:33)
+	at org.jboss.ide.eclipse.as.core.server.internal.JMXServerDeploymentScannerAdditions.ensureScannersAdded(JMXServerDeploymentScannerAdditions.java:62)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions.updateDeploymentScanners(AbstractDeploymentScannerAdditions.java:61)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions$1.run(AbstractDeploymentScannerAdditions.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: javax.naming.CommunicationException [Root exception is java.rmi.NoSuchObjectException: no such object in table]
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:724)
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:589)
+	at javax.naming.InitialContext.lookup(Unknown Source)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.createConnection(JBossServerConnection.java:236)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:202)
+	... 9 more
+Caused by: java.rmi.NoSuchObjectException: no such object in table
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(Unknown Source)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(Unknown Source)
+	at sun.rmi.server.UnicastRef.invoke(Unknown Source)
+	at org.jnp.server.NamingServer_Stub.lookup(Unknown Source)
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:627)
+	... 13 more
+!SUBENTRY 3 org.jboss.ide.eclipse.as.core 4 0 2016-11-10 19:43:20.337
+!MESSAGE Error connecting to remote JMX. Please ensure your server is properly configured for JMX access.
+!STACK 0
+javax.naming.CommunicationException [Root exception is java.rmi.NoSuchObjectException: no such object in table]
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:724)
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:589)
+	at javax.naming.InitialContext.lookup(Unknown Source)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.createConnection(JBossServerConnection.java:236)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:202)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:162)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:137)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerConnection.run(JBossServerConnection.java:132)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossJMXConnectionProviderModel.run(JBossJMXConnectionProviderModel.java:81)
+	at org.jboss.ide.eclipse.as.jmx.integration.JBossServerJMXRunner.run(JBossServerJMXRunner.java:33)
+	at org.jboss.ide.eclipse.as.core.server.internal.JMXServerDeploymentScannerAdditions.ensureScannersAdded(JMXServerDeploymentScannerAdditions.java:62)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions.updateDeploymentScanners(AbstractDeploymentScannerAdditions.java:61)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions$1.run(AbstractDeploymentScannerAdditions.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.rmi.NoSuchObjectException: no such object in table
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(Unknown Source)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(Unknown Source)
+	at sun.rmi.server.UnicastRef.invoke(Unknown Source)
+	at org.jnp.server.NamingServer_Stub.lookup(Unknown Source)
+	at org.jnp.interfaces.NamingContext.lookup(NamingContext.java:627)
+	... 13 more
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2016-11-10 20:01:26.984
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2016-11-10 21:31:18.872
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2016-11-10 21:31:33.819
+!MESSAGE Server Startup Succeeded
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2016-11-11 11:02:35.712
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2016-11-11 11:03:07.934
+!MESSAGE Server Startup Succeeded
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2016-11-11 12:15:27.073
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2016-11-11 12:15:51.472
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2016-11-11 12:40:30.075
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2016-11-11 12:40:31.211
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2016-11-11 12:40:44.165
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2016-11-11 20:03:46.729
+!MESSAGE Server processes have been terminated.
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2016-11-12 21:20:57.616
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2016-11-12 21:21:21.235
+!MESSAGE Server Startup Succeeded
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2016-11-14 19:40:18.098
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2016-11-14 19:40:33.317
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2016-11-14 20:33:55.579
+!MESSAGE Server processes have been terminated.
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2016-11-15 16:16:11.183
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2016-11-15 16:16:36.436
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 1644298246 2016-11-15 16:29:22.690
+!MESSAGE Unable to delete module
+!SUBENTRY 1 org.jboss.ide.eclipse.as.wtp.core 4 1644298251 2016-11-15 16:29:22.690
+!MESSAGE Could not delete D:\workspace\ejbworksapce\.metadata\.plugins\org.jboss.ide.eclipse.as.core\JBoss_AS_4.2\deploy\ejb_03_webclient.war. May be locked by another process.
+!SUBENTRY 2 org.jboss.ide.eclipse.as.wtp.core 4 1644298251 2016-11-15 16:29:22.690
+!MESSAGE Could not delete D:\workspace\ejbworksapce\.metadata\.plugins\org.jboss.ide.eclipse.as.core\JBoss_AS_4.2\deploy\ejb_03_webclient.war\WEB-INF. May be locked by another process.
+!SUBENTRY 3 org.jboss.ide.eclipse.as.wtp.core 4 1644298251 2016-11-15 16:29:22.690
+!MESSAGE Could not delete D:\workspace\ejbworksapce\.metadata\.plugins\org.jboss.ide.eclipse.as.core\JBoss_AS_4.2\deploy\ejb_03_webclient.war\WEB-INF\lib. May be locked by another process.
+!SUBENTRY 4 org.jboss.ide.eclipse.as.wtp.core 4 1644298251 2016-11-15 16:29:22.690
+!MESSAGE Could not delete D:\workspace\ejbworksapce\.metadata\.plugins\org.jboss.ide.eclipse.as.core\JBoss_AS_4.2\deploy\ejb_03_webclient.war\WEB-INF\lib\ejb_03.jar. May be locked by another process.
