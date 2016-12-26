@@ -9,11 +9,11 @@
 		<h1>
 			<font color="red">管理菜单</font>
 		</h1>
-		<s:a href="/hotel/authorityAdmin/listUser.action">客户管理</s:a>
+		<s:a href="/hotel/authorityAdmin/listReader.action">客户管理</s:a>
 		&nbsp;
-		<s:a href="/hotel/authorityAdmin/listRoom.action">房间管理</s:a>
+		<s:a href="/hotel/authorityAdmin/listBook.action">房间管理</s:a>
 		&nbsp;
-		<s:a href="/hotel/authorityAdmin/listOrder.action">订单管理</s:a>
+		<s:a href="/hotel/authorityAdmin/listRecorder.action">订单管理</s:a>
 		&nbsp;
 		<s:a href="/hotel/authorityAdmin/adminService!loginOut">退出</s:a>
 

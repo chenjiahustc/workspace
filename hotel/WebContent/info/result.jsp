@@ -6,10 +6,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>房间预定成功</title>
+		<title>书籍借阅成功</title>
 	</head>
 	<body>
-		<%@include file="/info/userInfo.jsp"%>
+		<%@include file="/info/readerInfo.jsp"%>
 		<br />
 		<br />
 		<br />

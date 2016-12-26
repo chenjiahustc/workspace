@@ -4,7 +4,7 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
-import com.integration.entity.User;
+import com.integration.entity.Reader;
 @SuppressWarnings("serial")
 public class AuthorityInterceptor extends AbstractInterceptor {
 	@SuppressWarnings("unchecked")
@@ -13,8 +13,9 @@ public class AuthorityInterceptor extends AbstractInterceptor {
 	public String intercept(ActionInvocation invocation) throws Exception {
 		ActionContext context = invocation.getInvocationContext();
 		Map session = context.getSession();
-		User user = (User) session.get("user");
-		if (user != null) {
+		//User user = (User) session.get("user");
+		Reader reader = (Reader) session.get("reader");
+		if (reader != null) {
 			return invocation.invoke();
 		}
 		context.put("message", "您还没有登录，请登录系统。");

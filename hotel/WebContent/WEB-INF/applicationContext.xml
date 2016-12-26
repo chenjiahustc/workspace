@@ -11,7 +11,7 @@
 		</property>
 
 		<property name="url">
-			<value>jdbc:mysql://localhost:3306/hotel</value>
+			<value>jdbc:mysql://localhost:3306/library</value>
 		</property>
 
 		<property name="username">
@@ -33,10 +33,10 @@
 
 		<property name="mappingResources">
 			<list>
-				<value>com/integration/entity/Order.hbm.xml</value>
+				<value>com/integration/entity/Recorder.hbm.xml</value>
 				<value>com/integration/entity/Admin.hbm.xml</value>
-				<value>com/integration/entity/Room.hbm.xml</value>
-				<value>com/integration/entity/User.hbm.xml</value>
+				<value>com/integration/entity/Book.hbm.xml</value>
+				<value>com/integration/entity/Reader.hbm.xml</value>
 			</list>
 		</property>
 
@@ -63,20 +63,20 @@
 
 
 	<!-- userDao -->
-	<bean id="userDao" class="com.integration.dao.impl.UserDAOImpl" scope="singleton">
+	<bean id="readerDao" class="com.integration.dao.impl.ReaderDAOImpl" scope="singleton">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
 
-	<bean id="userServiceTarget" class="com.integration.service.impl.UserServiceImpl">
-		<property name="userDao" ref="userDao"></property>
+	<bean id="readerServiceTarget" class="com.integration.service.impl.ReaderServiceImpl">
+		<property name="readerDao" ref="readerDao"></property>
 	</bean>
 
-	<bean id="userService"
+	<bean id="readerService"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 
-		<property name="target" ref="userServiceTarget"></property>
+		<property name="target" ref="readerServiceTarget"></property>
 		<property name="transactionManager" ref="transactionManager"></property>
 
 		<property name="transactionAttributes">
@@ -90,33 +90,33 @@
 
 	</bean>
 
-	<bean id="saveUserAction" class="com.integration.action.user.SaveUserAction"
+	<bean id="saveReaderAction" class="com.integration.action.reader.SaveReaderAction"
 		scope="prototype">
-		<property name="service" ref="userService"></property>
+		<property name="service" ref="readerService"></property>
 	</bean>
 
-	<bean id="listUserAction" class="com.integration.action.user.ListUserAction"
+	<bean id="listReaderAction" class="com.integration.action.reader.ListReaderAction"
 		scope="prototype">
-		<property name="service" ref="userService"></property>
+		<property name="service" ref="readerService"></property>
 	</bean>
 
-	<bean id="removeUserAction" class="com.integration.action.user.RemoveUserAction"
+	<bean id="removeReaderAction" class="com.integration.action.reader.RemoveReaderAction"
 		scope="prototype">
-		<property name="service" ref="userService"></property>
+		<property name="service" ref="readerService"></property>
 	</bean>
 
-	<bean id="updatePUserAction" class="com.integration.action.user.UpdatePUser">
-		<property name="service" ref="userService"></property>
+	<bean id="updatePReaderAction" class="com.integration.action.reader.UpdatePReader">
+		<property name="service" ref="readerService"></property>
 	</bean>
 
-	<bean id="updateUserAction" class="com.integration.action.user.UpdateUserAction"
+	<bean id="updateReaderrAction" class="com.integration.action.reader.UpdateReaderAction"
 		scope="prototype">
-		<property name="service" ref="userService"></property>
+		<property name="service" ref="readerService"></property>
 	</bean>
 
-	<bean id="userAction" class="com.integration.action.user.UserAction"
+	<bean id="readerAction" class="com.integration.action.reader.ReaderAction"
 		scope="prototype">
-		<property name="userService" ref="userService"></property>
+		<property name="readerService" ref="readerService"></property>
 	</bean>
 
 	<!-- adminDao -->
@@ -157,21 +157,21 @@
 		<property name="adminService" ref="adminService"></property>
 	</bean>
 
-	<!-- roomDao -->
-	<bean id="roomDao" class="com.integration.dao.impl.RoomDAOImpl" scope="singleton">
+	<!-- bookDao -->
+	<bean id="bookDao" class="com.integration.dao.impl.BookDAOImpl" scope="singleton">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
 
-	<bean id="roomServiceTarget" class="com.integration.service.impl.RoomServiceImpl">
-		<property name="roomDao" ref="roomDao"></property>
+	<bean id="bookServiceTarget" class="com.integration.service.impl.BookServiceImpl">
+		<property name="bookDao" ref="bookDao"></property>
 	</bean>
 
-	<bean id="roomService"
+	<bean id="bookService"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 
-		<property name="target" ref="roomServiceTarget"></property>
+		<property name="target" ref="bookServiceTarget"></property>
 		<property name="transactionManager" ref="transactionManager"></property>
 
 		<property name="transactionAttributes">
@@ -185,46 +185,46 @@
 
 	</bean>
 
-	<bean id="saveRoomAction" class="com.integration.action.room.SaveRoomAction"
+	<bean id="saveBookAction" class="com.integration.action.book.SaveBookAction"
 		scope="prototype">
-		<property name="roomService" ref="roomService"></property>
+		<property name="bookService" ref="bookService"></property>
 	</bean>
 
-	<bean id="listRoomAction" class="com.integration.action.room.ListRoomAction"
+	<bean id="listBookAction" class="com.integration.action.book.ListBookAction"
 		scope="prototype">
-		<property name="roomService" ref="roomService"></property>
+		<property name="bookService" ref="bookService"></property>
 	</bean>
 
-	<bean id="removeRoomAction" class="com.integration.action.room.RemoveRoomAction"
+	<bean id="removeBookAction" class="com.integration.action.book.RemoveBookAction"
 		scope="prototype">
-		<property name="roomService" ref="roomService"></property>
+		<property name="bookService" ref="bookService"></property>
 	</bean>
 
-	<bean id="updatePRoomAction" class="com.integration.action.room.UpdatePRoom">
-		<property name="roomService" ref="roomService"></property>
+	<bean id="updatePBookAction" class="com.integration.action.book.UpdatePBook">
+		<property name="bookService" ref="bookService"></property>
 	</bean>
 
-	<bean id="updateRoomAction" class="com.integration.action.room.UpdateRoomAction"
+	<bean id="updateBookAction" class="com.integration.action.book.UpdateBookAction"
 		scope="prototype">
-		<property name="roomService" ref="roomService"></property>
+		<property name="bookService" ref="bookService"></property>
 	</bean>
 
 
-	<!-- orderDao -->
-	<bean id="orderDao" class="com.integration.dao.impl.OrderDAOImpl" scope="singleton">
+	<!-- recorderDao -->
+	<bean id="recorderDao" class="com.integration.dao.impl.RecorderDAOImpl" scope="singleton">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
 
-	<bean id="orderServiceTarget" class="com.integration.service.impl.OrderServiceImpl">
-		<property name="orderDao" ref="orderDao"></property>
+	<bean id="recorderServiceTarget" class="com.integration.service.impl.RecorderServiceImpl">
+		<property name="recorderDao" ref="recorderDao"></property>
 	</bean>
 
-	<bean id="orderService"
+	<bean id="recorderService"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 
-		<property name="target" ref="orderServiceTarget"></property>
+		<property name="target" ref="recorderServiceTarget"></property>
 		<property name="transactionManager" ref="transactionManager"></property>
 
 		<property name="transactionAttributes">
@@ -238,22 +238,22 @@
 
 	</bean>
 
-	<bean id="saveOrderAction" class="com.integration.action.order.SaveOrderAction"
+	<bean id="saveRecorderAction" class="com.integration.action.recorder.SaveRecorderAction"
 		scope="prototype">
-		<property name="orderService" ref="orderService"></property>
-		<property name="roomService" ref="roomService"></property>
+		<property name="recorderService" ref="recorderService"></property>
+		<property name="bookService" ref="bookService"></property>
 	</bean>
 
-	<bean id="orderServiceAction" class="com.integration.action.order.OrderServiceAction"
+	<bean id="recorderServiceAction" class="com.integration.action.recorder.RecorderServiceAction"
 		scope="prototype">
-		<property name="roomService" ref="roomService"></property>
-		<property name="orderService" ref="orderService"></property>
+		<property name="bookService" ref="bookService"></property>
+		<property name="recorderService" ref="recorderService"></property>
 	</bean>
 
-	<bean id="listOrderAction" class="com.integration.action.order.ListOrderAction"
+	<bean id="listRecorderAction" class="com.integration.action.recorder.ListRecorderAction"
 		scope="prototype">
-		<property name="roomService" ref="roomService"></property>
-		<property name="orderService" ref="orderService"></property>
+		<property name="bookService" ref="bookService"></property>
+		<property name="recorderService" ref="recorderService"></property>
 	</bean>
 
 </beans>
