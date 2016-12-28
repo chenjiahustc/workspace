@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  "-//Apache Struts//XWork Validator 1.0.3//EN" 
+ "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+  <field name="username">
+        <field-validator  type="regex">
+            <param  name="expression"><![CDATA[(\w{4,25})]]></param>
+            <message>您输入的用户名只能为数字和字母，且长度在4到25之间</message>
+        </field-validator>
+  </field>
+</validators>

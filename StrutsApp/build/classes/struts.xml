@@ -4,21 +4,26 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="cn.pluto.www" namespace="/" extends="struts-default">
-    	<action name="loginUser" class="cn.pluto.www.user.action.UserAction">
-    		<result name="success">/pages/success.jsp</result>
-    		<result name="fail">/pages/fail.jsp</result>
-    	</action>
-    	
-    	<action name="login" class="cn.pluto.www.user.action.UserAction" method="login">
-    		<result name="success">/pages/success.jsp</result>
-    		<result name="fail">/pages/fail.jsp</result>
-    	</action>
-    	
-    	<action name="register" class="cn.pluto.www.user.action.UserAction" method="register">
-    		<result name="success">/pages/success.jsp</result>
-    		<result name="fail">/pages/fail.jsp</result>
-    	</action>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <package name="strutsapp" namespace="/" extends="struts-default">
+    	<interceptors>
+			<interceptor name="authority" class="cn.zq.www.interceptor.AuthorityInterceptor" />
+		</interceptors>
+		
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+		
+		<action name="userAction" class="cn.zq.www.action.UserAction">
+			<result name="input" type="redirect">/login.jsp</result>
+			<result name="success" type="redirect">/userInfo.jsp</result>
+			
+		</action>
+		
+		<action name="listUserAction" class="cn.zq.www.action.UserAction">
+			<interceptor-ref name="authority"></interceptor-ref>
+			<result name="listSuc">/list.jsp</result>
+		</action>
     </package>
 
 

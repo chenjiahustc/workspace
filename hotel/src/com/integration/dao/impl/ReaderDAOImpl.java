@@ -5,7 +5,7 @@ import com.integration.entity.Reader;
 import com.integration.dao.ReaderDAO;
 public class ReaderDAOImpl extends HibernateDaoSupport implements ReaderDAO {
 	public void saveReader(Reader reader) {
-		this.getHibernateTemplate().save(Reader);
+		this.getHibernateTemplate().save(reader);
 	}
 	@SuppressWarnings("unchecked")
 	public List<Reader> findAllReaders() {

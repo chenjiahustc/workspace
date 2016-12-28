@@ -29,7 +29,7 @@ public class RecorderServiceImpl implements RecorderService {
 		this.recorderDao.updateRecorder(recorder);
 	}
 	public List<Recorder> getReaderRecorder(Reader reader) {
-		return this.recorderDao.getReaderRecorde(reader);
+		return this.recorderDao.getReaderRecorder(reader);
 	}
 	public Recorder findRecorderByReaderidAndBookid(int readerid, int bookid) {
 		return this.recorderDao.findRecorderByReaderidAndBookid(readerid, bookid);

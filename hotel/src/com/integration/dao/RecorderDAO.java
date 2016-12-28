@@ -8,6 +8,6 @@ public interface RecorderDAO {
 	public void removeRecorder(Recorder recorder);
 	public void updateRecorder(Recorder recorder);
 	public Recorder findRecorderById(Integer id);
-	public List<Recorder> getReaderRecorde(Reader reader);
+	public List<Recorder> getReaderRecorder(Reader reader);
 	public Recorder findRecorderByReaderidAndBookid(int readerid, int bookid);
 }

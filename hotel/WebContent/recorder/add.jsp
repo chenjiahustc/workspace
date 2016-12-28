@@ -9,7 +9,7 @@
 		<title>增加入住信息</title>
 		<script type="text/javascript">
 function sav() {
-	if (confirm("你确定要入住该房间吗?")) {
+	if (confirm("你确定要借阅该书籍吗?")) {
 		return true;
 	}
 	return false;
@@ -28,32 +28,32 @@ function sav() {
 				<td colspan="5">
 					<h2>
 						<font color="red"><center> 
-								<br>房间列表 
+								<br>书籍列表 
 							</center> </font>
 					</h2>
 				</td>
 			</tr>
 			<tr>
 				<td> 
-					房间号 
-				</td>
-				<td>
-					房间名称
-				</td>
-				<td>
-					房间价格
+					书籍号
 				</td>
 				<td> 
-					房间类型 
+					书籍名
+				</td>
+				<td>
+					书籍作者
+				</td>
+				<td>
+					书籍简介
 				</td>
 				<td>
 					操作
 				</td>
 			</tr>
-			<s:iterator value="#request.listRoom" id="room">
+			<s:iterator value="#request.listBook" id="book">
 				<tr>
 					<td>
-						<s:property value="#room.roomid" />
+						<s:property value="#book.roomid" />
 					</td>
 					<td>
 						<s:property value="#room.name" />
