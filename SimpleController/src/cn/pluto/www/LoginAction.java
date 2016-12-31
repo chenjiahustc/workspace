@@ -1,12 +1,16 @@
 package cn.pluto.www;
 
-public class LoginAction implements LoginActionInterface{
+public class LoginAction {
+	private UserBean userbean;
+	public UserBean getUserbean() {
+		return userbean;
+	}
+	public void setUserbean(UserBean userbean) {
+		this.userbean = userbean;
+	}
+
 	public String login(String username, String password){
-		UserBean user = new UserBean();
-		user.setUsername(username);
-		user.setPassword(password);
-		
-		if (user.checkLogin())
+		if (userbean.checkLogin())
 			return "success";
 		else
 			return "fail";

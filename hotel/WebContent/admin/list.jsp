@@ -47,7 +47,7 @@ function del() {
 			<s:iterator value="#request.list" id="us">
 				<tr>
 					<td>
-						<s:property value="#us.readerid" />
+						<s:property value="#us.userid" />
 					</td>
 					<td>
 						<s:property value="#us.username" />
@@ -59,11 +59,11 @@ function del() {
 						<s:property value="#us.email" />
 					</td>
 					<td>
-						<s:a href="deleteReader.action?reader.readerid=%{#us.readerid}"
+						<s:a href="deleteUser.action?user.userid=%{#us.userid}"
 							onclick="return del();">delete</s:a>
 					</td>
 					<td>
-						<s:a href="updatePReader.action?reader.readerid=%{#us.readerid}">update</s:a>
+						<s:a href="updatePUser.action?user.userid=%{#us.userid}">update</s:a>
 					</td>
 				</tr>
 			</s:iterator>

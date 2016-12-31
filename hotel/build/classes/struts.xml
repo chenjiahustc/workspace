@@ -3,10 +3,10 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="book" extends="struts-default">
+	<package name="hotel" extends="struts-default">
 
-		<action name="ReaderService" class="ReaderAction">
-			<result name="success" type="redirect">/info/readerInfo.jsp</result>
+		<action name="userService" class="userAction">
+			<result name="success" type="redirect">/info/userInfo.jsp</result>
 			<result name="input" type="redirect">/login.jsp</result>
 			<result name="userUpdate" type="dispatcher">/info/changePwd.jsp</result>
 			<result name="updateSuc" type="dispatcher">/info/result.jsp</result>
@@ -17,11 +17,11 @@
 			<result name="input" type="redirect">/adminLogin.jsp</result>
 		</action>
 
-		<action name="saveReader" class="saveReaderAction">
+		<action name="saveUser" class="saveUserAction">
 			<result name="success" type="redirect">
-				<param name="actionName">listReader.action</param>
+				<param name="actionName">listUser.action</param>
 			</result>
-			<result name="regSuc" type="dispatcher">/info/readerInfo.jsp</result>
+			<result name="regSuc" type="dispatcher">/info/userInfo.jsp</result>
 		</action>
 
 	</package>
@@ -43,14 +43,14 @@
 		</global-results>
 
 		<!-- order -->
-		<action name="saveRecorder" class="saveRecorderAction">
-			<result name="success" type="dispatcher">/recorder/add.jsp</result>
-			<result name="addSuc" type="redirect">recorderService</result>
+		<action name="saveOrder" class="saveOrderAction">
+			<result name="success" type="dispatcher">/order/add.jsp</result>
+			<result name="addSuc" type="redirect">orderService</result>
 			<result name="addFail" type="dispatcher">/info/result.jsp</result>
 		</action>
 
-		<action name="recorderService" class="recorderServiceAction">
-			<result name="success" type="dispatcher">/info/recorderInfo.jsp</result>
+		<action name="orderService" class="orderServiceAction">
+			<result name="success" type="dispatcher">/info/orderInfo.jsp</result>
 			<result name="delSuc" type="dispatcher">/info/result.jsp</result>
 		</action>
 	</package>
@@ -71,20 +71,20 @@
 		</global-results>
 
 		<!-- user -->
-		<action name="listReader" class="listReaderAction">
-			<result name="success">/reader/list.jsp</result>
+		<action name="listUser" class="listUserAction">
+			<result name="success">/user/list.jsp</result>
 		</action>
 
-		<action name="deleteReader" class="removeReaderAction">
-			<result name="success" type="redirect">listReader.action</result>
+		<action name="deleteUser" class="removeUserAction">
+			<result name="success" type="redirect">listUser.action</result>
 		</action>
 
-		<action name="updatePReader" class="updatePReaderAction">
-			<result name="success">/reader/update.jsp</result>
+		<action name="updatePUser" class="updatePUserAction">
+			<result name="success">/user/update.jsp</result>
 		</action>
 
-		<action name="updateReader" class="updateReaderAction">
-			<result name="success" type="redirect">listReader.action</result>
+		<action name="updateUser" class="updateUserAction">
+			<result name="success" type="redirect">listUser.action</result>
 		</action>
 
 		<!-- admin -->
@@ -93,29 +93,29 @@
 		</action>
 
 		<!-- hotel -->
-		<action name="saveBook" class="saveBookAction">
-			<result name="success" type="redirect">listBook.action</result>
+		<action name="saveRoom" class="saveRoomAction">
+			<result name="success" type="redirect">listRoom.action</result>
 		</action>
 
-		<action name="listBook" class="listBookAction">
-			<result name="success">/book/list.jsp</result>
+		<action name="listRoom" class="listRoomAction">
+			<result name="success">/room/list.jsp</result>
 		</action>
 
-		<action name="deleteBook" class="removeBookAction">
-			<result name="success" type="redirect">listBook.action</result>
+		<action name="deleteRoom" class="removeRoomAction">
+			<result name="success" type="redirect">listRoom.action</result>
 		</action>
 
-		<action name="updatePBook" class="updatePBookAction">
-			<result name="success">/book/update.jsp</result>
+		<action name="updatePRoom" class="updatePRoomAction">
+			<result name="success">/room/update.jsp</result>
 		</action>
 
-		<action name="updateBook" class="updateBookAction">
-			<result name="success" type="redirect">listBook.action</result>
+		<action name="updateRoom" class="updateRoomAction">
+			<result name="success" type="redirect">listRoom.action</result>
 		</action>
 
 		<!-- order -->
-		<action name="listRecorder" class="listRecorderAction">
-			<result name="success" type="dispatcher">/recorder/list.jsp</result>
+		<action name="listOrder" class="listOrderAction">
+			<result name="success" type="dispatcher">/order/list.jsp</result>
 		</action>
 	</package>
 

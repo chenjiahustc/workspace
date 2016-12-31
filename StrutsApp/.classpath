@@ -26,5 +26,6 @@
 	<classpathentry kind="lib" path="D:/workspace/StrutsApp/WebContent/WEB-INF/lib/ognl-3.0.19.jar"/>
 	<classpathentry kind="lib" path="D:/workspace/StrutsApp/WebContent/WEB-INF/lib/struts2-core-2.3.31.jar"/>
 	<classpathentry kind="lib" path="D:/workspace/StrutsApp/WebContent/WEB-INF/lib/xwork-core-2.3.31.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate-core"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
