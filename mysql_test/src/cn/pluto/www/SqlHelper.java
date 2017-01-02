@@ -31,13 +31,9 @@ public class SqlHelper {
 			fis = new FileInputStream("dbinfo.properties");
 			prop.load(fis);
 			url = prop.getProperty("url");
-			System.out.println("url = " + url);
 			driver = prop.getProperty("driver");
-			System.out.println("driver = " + driver);
 			username = prop.getProperty("username");
-			System.out.println("username = " + username);
 			password = prop.getProperty("password");
-			System.out.println("password = " + password);
 			
 			Class.forName(driver);
 		} catch(Exception e){

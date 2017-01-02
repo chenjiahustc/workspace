@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class MysqlTest {
 
 	public static void main(String[] args) {
-		String sql = "select * from users where username=?";
+		String sql = "select * from users where name=?";
 		String parameters[] = {"test"};
 		ResultSet rs = null;
 		String result = null;
@@ -16,7 +16,7 @@ public class MysqlTest {
 		rs = SqlHelper.executeQuery(sql, parameters);
 		try {
 			if (rs.next())
-				result = rs.getString(2);
+				result = rs.getString(3);
 		} catch (Exception e){
 			e.printStackTrace();
 		}

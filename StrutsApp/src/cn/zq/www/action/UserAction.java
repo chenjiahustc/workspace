@@ -12,6 +12,8 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import cn.zq.www.dao.UserDAO;
+import cn.zq.www.dao.impl.UserDAOImpl;
 import cn.zq.www.entity.User;
 
 public class UserAction extends ActionSupport {
@@ -31,10 +33,8 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String login(){
-		User userLogin = user;
-		userLogin.setMobile("18100676860");
-		userLogin.setEmail("970583834@qq.com");
-		System.out.println(user.getUsername() + " : " + user.getPassword());
+		UserDAO userdao = new UserDAOImpl();
+		User userLogin = userdao.loginUser(user);
 		if (userLogin != null){
 			HttpServletRequest request = ServletActionContext.getRequest();
 			HttpSession session = request.getSession();
@@ -57,6 +57,9 @@ public class UserAction extends ActionSupport {
 		//todo save user to db
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
+		UserDAO userdao = new UserDAOImpl();
+		userdao.saveUser(user);
+		System.out.println(user.getUserid());
 		session.setAttribute("user", this.user);
 		
 		return SUCCESS;
@@ -64,17 +67,8 @@ public class UserAction extends ActionSupport {
 	
 	public String listUser(){
 		Map request = (Map) ActionContext.getContext().get("request");
-		List<User> userList = new ArrayList<User>();
-		User userDefault = new User();
-		userDefault.setUsername("pluto");
-		userDefault.setPassword("123");
-		userDefault.setMobile("01111314520");
-		userDefault.setEmail("tomcat@ustc.edu.cn");
-		userList.add(userDefault);
-		
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		userList.add((User)session.getAttribute("user"));
-		
+		UserDAO userdao = new UserDAOImpl();
+		List<User> userList = userdao.findAllUsers();
 		request.put("list", userList);
 		
 		return "listSuc";
