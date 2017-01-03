@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.pluto.www.di.DependencyMappings;
+
 /**
  * Servlet implementation class LoginController
  */
@@ -51,8 +53,10 @@ public class LoginController extends HttpServlet {
 		Method m = null;
 		
 		try{
-			cl = Class.forName(classname);
-			ob = cl.newInstance();
+			//cl = Class.forName(classname);
+			//ob = cl.newInstance();
+			ob = DependencyMappings.getBeanByName(classname);
+			cl = ob.getClass();
 			m = cl.getMethod(method, new Class[]{String.class, String.class});
 		} catch(Exception e){
 			e.printStackTrace();

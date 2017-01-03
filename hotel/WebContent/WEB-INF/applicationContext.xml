@@ -19,7 +19,7 @@
 		</property>
 
 		<property name="password">
-			<value>hello</value>
+			<value>root</value>
 		</property>
 
 	</bean>

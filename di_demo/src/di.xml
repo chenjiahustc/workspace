@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependency-mappings>
+	<bean>
+		<name>user</name>
+		<class>cn.pluto.www.UserBean</class>
+		<property>
+			<name>userID</name>
+			<value>1</value>
+			<ref-class></ref-class>
+		</property>
+		<property>
+			<name>userName</name>
+			<value>cj</value>
+			<ref-class></ref-class>
+		</property>
+		<property>
+			<name>userPass</name>
+			<value>123</value>
+			<ref-class></ref-class>
+		</property>
+	</bean>
+	<bean>
+		<name>loginAction</name>
+		<class>cn.pluto.www.LoginAction</class>
+		<property>
+			<name>userBean</name>
+			<value></value>
+			<ref-class>user</ref-class>
+		</property>
+	</bean>
+</dependency-mappings>

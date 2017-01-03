@@ -12,5 +12,6 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		<property name="password" column="password" type="string"></property>
 		<property name="mobile" column="mobile" type="string"></property>
 		<property name="email" column="email" type="string"></property>
+		<property name="version" column="version" type="int"></property>
 	</class>
 </hibernate-mapping>

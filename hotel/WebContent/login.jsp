@@ -18,7 +18,6 @@
 			<s:submit method="login" value="登 录"></s:submit>
 			<br />
 			<s:a href="/hotel/adminLogin.jsp">管理员登录</s:a>
-			<br />
 			<s:a href="/hotel/register.jsp">新用户注册</s:a>
 			<br />
 			<br />

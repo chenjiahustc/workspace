@@ -9,6 +9,8 @@
 		<h1>
 			<font color="red">操作菜单</font>
 		</h1>
+		<s:a href="/StrutsApp/listUserAction!userUpdateInfo">修改密码</s:a>
+		&nbsp;
 		<s:a href="/StrutsApp/listUserAction!listUser">查看用户联系方式</s:a>
 		&nbsp;
 		<s:a href="/StrutsApp/userAction!logout">退出</s:a>
