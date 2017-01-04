@@ -8,13 +8,13 @@
 	<head>
 		<title>用户列表</title>
 		<script type="text/javascript">
-function del() {
-	if (confirm("你确定要删除该用户吗?")) {
-		return true;
-	}
-	return false;
-}
-</script>
+			function del() {
+				if (confirm("你确定要删除该用户吗?")) {
+					return true;
+				}else
+					return false;
+			}
+		</script>
 	</head>
 	<body>
 		<%@include file="/userInfo.jsp"%>
@@ -35,6 +35,9 @@ function del() {
 				<td> 
 					电子邮箱 
 				</td>
+				<td>
+					删除
+				</td>
 			</tr>
 			<s:iterator value="#request.list" id="us">
 				<tr>
@@ -46,6 +49,10 @@ function del() {
 					</td>
 					<td>
 						<s:property value="#us.email" />
+					</td>
+					<td>
+						<s:a href="/StrutsApp/userDeleteAction?user.userid=%{#us.userid}"
+						  onclick="return del();">delete</s:a>
 					</td>
 				</tr>
 			</s:iterator>

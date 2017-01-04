@@ -13,7 +13,9 @@ import cn.zq.www.entity.User;
 public class UserDAOImpl implements UserDAO{
 	private Session session = null;
 	private Transaction tran = null;
-	private static String lockType = "Pessimistic"; // "Optimistic"
+//	private static String lockType = "";
+//	private static String lockType = "Pessimistic";
+	private static String lockType = "Optimistic";
 
 	@Override
 	public void saveUser(User user) {
@@ -92,9 +94,12 @@ public class UserDAOImpl implements UserDAO{
 			session = HibernateUtil.getSession();
 			tran = session.beginTransaction();
 			if (lockType.equals("Pessimistic")){
+				System.out.println("removeUser : Pessimistic lock ");
 				session.lock(user, LockMode.UPGRADE);
+				session.delete(user);
 			}else if (lockType.equals("Optimistic")){
-				
+				System.out.println("removeUser : Pessimistic lock ");
+				session.delete(user);
 			}else
 				session.delete(user);
 			
@@ -116,10 +121,17 @@ public class UserDAOImpl implements UserDAO{
 			session = HibernateUtil.getSession();
 			tran = session.beginTransaction();
 			if (lockType.equals("Pessimistic")){
+				System.out.println("updateUser : Pessimistic lock ");
 				session.lock(user, LockMode.UPGRADE);
 				session.update(user);
 			}else if (lockType.equals("Optimistic")){
-				
+				System.out.println("updateUser : Pessimistic lock ");
+				User userBak = (User)session.get(User.class, user.getUserid());
+				if (userBak.getVersion() == user.getVersion()){
+					System.out.println("版本相符，可以更新");
+					session.update(user);
+				}else
+					System.out.println("版本不相符，脏数据不能更新");
 			}else
 				session.update(user);
 

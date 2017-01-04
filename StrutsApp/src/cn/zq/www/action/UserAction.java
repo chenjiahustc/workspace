@@ -18,6 +18,7 @@ import cn.zq.www.entity.User;
 
 public class UserAction extends ActionSupport {
 	private User user;
+	private String message;
 
 	public User getUser() {
 		return user;
@@ -26,7 +27,16 @@ public class UserAction extends ActionSupport {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	@Override
 	public String execute() throws Exception{
 		return SUCCESS;
@@ -64,14 +74,5 @@ public class UserAction extends ActionSupport {
 		
 		return SUCCESS;
 	}
-	
-	public String listUser(){
-		Map request = (Map) ActionContext.getContext().get("request");
-		UserDAO userdao = new UserDAOImpl();
-		List<User> userList = userdao.findAllUsers();
-		request.put("list", userList);
-		
-		return "listSuc";
-	}
-	
+
 }

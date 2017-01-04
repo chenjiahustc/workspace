@@ -17,10 +17,19 @@
 		<action name="userAction" class="cn.zq.www.action.UserAction">
 			<result name="input" type="redirect">/login.jsp</result>
 			<result name="success" type="redirect">/userInfo.jsp</result>
-			
 		</action>
 		
-		<action name="listUserAction" class="cn.zq.www.action.UserAction">
+		<action name="userUpdateAction" class="cn.zq.www.action.UserUpdateAction">
+			<result name="userUpdate" type="dispatcher">/changePwd.jsp</result>
+			<result name="updateSuc" type="dispatcher">/result.jsp</result>
+		</action>
+		
+		<action name="userDeleteAction" class="cn.zq.www.action.UserDeleteAction">
+			<result name="input" type="redirect">/login.jsp</result>
+			<result name="success" type="redirect">listUserAction!listUser</result>
+		</action>
+		
+		<action name="listUserAction" class="cn.zq.www.action.UserListAction">
 			<interceptor-ref name="authority"></interceptor-ref>
 			<result name="listSuc">/list.jsp</result>
 		</action>
